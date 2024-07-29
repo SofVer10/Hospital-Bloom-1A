@@ -8,25 +8,24 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-class pacientes : AppCompatActivity() {
+class medicina : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_pacientes)
+        setContentView(R.layout.activity_medicina)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-
         val imvPacientes = findViewById<ImageView>(R.id.imvPacientes)
         val imvMedicina = findViewById<ImageView>(R.id.imvMedicina)
-        val imvsuministro = findViewById<ImageView>(R.id.imvSuministro)
+        val imvSuministro = findViewById<ImageView>(R.id.imvSuministro)
 
         imvPacientes.setOnClickListener {
 
-            val pantallaSiguiente = Intent(this@pacientes, pacientes::class.java)
+            val pantallaSiguiente = Intent(this@medicina, pacientes::class.java)
             startActivity(pantallaSiguiente)
 
             finish()
@@ -34,19 +33,19 @@ class pacientes : AppCompatActivity() {
 
         imvMedicina.setOnClickListener {
 
-            val pantallaSiguiente = Intent(this@pacientes, medicina::class.java)
+            val pantallaSiguiente = Intent(this@medicina, medicina::class.java)
             startActivity(pantallaSiguiente)
 
             finish()
         }
 
+        imvSuministro.setOnClickListener {
 
-        imvsuministro.setOnClickListener {
-
-            val pantallaSiguiente = Intent(this@pacientes, suministro1::class.java)
+            val pantallaSiguiente = Intent(this@medicina, suministro1::class.java)
             startActivity(pantallaSiguiente)
 
             finish()
         }
+
     }
 }
