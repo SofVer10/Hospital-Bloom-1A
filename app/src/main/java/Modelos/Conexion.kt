@@ -7,11 +7,12 @@ class Conexion {
 
     fun cadenaConexion(): Connection?{
         try {
-            val ip = "jdbc:oracle:thin:@172.24.192.1:1521:xe"
+            val ipSofi = "jdbc:oracle:thin:@172.24.192.1:1521:xe"
+            val ipRuth = "jdbc:oracle:thin:@192.168.3.8:1521:xe"
             val usuario = "Ruth_Sofi"
             val contrasena = "ricaldone2024e"
 
-            val conexion = DriverManager.getConnection(ip, usuario, contrasena)
+            val conexion = DriverManager.getConnection(ipRuth, usuario, contrasena)
             return conexion
         }catch (e: Exception){
             println("Este es el error: $e")
