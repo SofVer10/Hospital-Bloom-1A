@@ -62,6 +62,7 @@ class pacientes : AppCompatActivity() {
 
 
 
+
         imvPacientes.setOnClickListener {
 
             val pantallaSiguiente = Intent(this@pacientes, pacientes::class.java)
