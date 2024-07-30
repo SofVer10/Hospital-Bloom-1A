@@ -101,7 +101,7 @@ class medicina : AppCompatActivity() {
 
         txtSuministroM.setOnClickListener {
 
-            val pantallaSiguiente = Intent(this@medicinagt, suministro1::class.java)
+            val pantallaSiguiente = Intent(this@medicina, suministro1::class.java)
             startActivity(pantallaSiguiente)
 
             finish()
