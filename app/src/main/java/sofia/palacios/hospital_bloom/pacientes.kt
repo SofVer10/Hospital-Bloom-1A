@@ -43,18 +43,20 @@ class pacientes : AppCompatActivity() {
 
                 val objConexion = Conexion().cadenaConexion()
 
-                if (objConexion == null) {
-                    Log.e("DatabaseError", "objConexion is null")
-                } else {
-                    val addPaciente = objConexion.prepareStatement("INSERT INTO Pacientes (nombres, apellidos, enfermedad, numero_habitacion, numero_cama, fecha_nacimiento) VALUES (?, ?, ?, ?, ?, ?)")
+              //  if (objConexion == null) {
+               //     Log.e("DatabaseError", "objConexion is null")
+               // } else {
+                    val addPaciente = objConexion?.prepareStatement("INSERT INTO Pacientes (nombres, apellidos, enfermedad, numero_habitacion, numero_cama, fecha_nacimiento) VALUES (?, ?, ?, ?, ?, ?)")!!
                     addPaciente.setString(1, txtNombre.text.toString())
                     addPaciente.setString(2, txtApellido.text.toString())
                     addPaciente.setString(3, txtEnfermedad.text.toString())
                     addPaciente.setString(4, txtNumHabitacion.text.toString())
                     addPaciente.setString(5, txtNumCama.text.toString())
                     addPaciente.setInt(6, txtNacimiento.text.toString().toInt())
+
+
                     addPaciente.executeUpdate()
-                }
+               // }
             }
         }
 
