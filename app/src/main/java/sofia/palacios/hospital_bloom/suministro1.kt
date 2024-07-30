@@ -3,6 +3,7 @@ package sofia.palacios.hospital_bloom
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -22,8 +23,19 @@ class suministro1 : AppCompatActivity() {
         val imvPacientes = findViewById<ImageView>(R.id.imvPacientes)
         val imvMedicina = findViewById<ImageView>(R.id.imvMedicina)
         val imvSuministro = findViewById<ImageView>(R.id.imvSuministro)
+        val txtMedicinaM = findViewById<TextView>(R.id.txtMedicinaM)
+        val txtPacientesM = findViewById<TextView>(R.id.txtPacientesM)
+        val txtSuministroM = findViewById<TextView>(R.id.txtSuministroM)
 
         imvPacientes.setOnClickListener {
+
+            val pantallaSiguiente = Intent(this@suministro1, pacientes::class.java)
+            startActivity(pantallaSiguiente)
+
+            finish()
+        }
+
+        txtPacientesM.setOnClickListener {
 
             val pantallaSiguiente = Intent(this@suministro1, pacientes::class.java)
             startActivity(pantallaSiguiente)
@@ -39,7 +51,23 @@ class suministro1 : AppCompatActivity() {
             finish()
         }
 
+        txtMedicinaM.setOnClickListener {
+
+            val pantallaSiguiente = Intent(this@suministro1, medicina::class.java)
+            startActivity(pantallaSiguiente)
+
+            finish()
+        }
+
         imvSuministro.setOnClickListener {
+
+            val pantallaSiguiente = Intent(this@suministro1, suministro1::class.java)
+            startActivity(pantallaSiguiente)
+
+            finish()
+        }
+
+        txtSuministroM.setOnClickListener {
 
             val pantallaSiguiente = Intent(this@suministro1, suministro1::class.java)
             startActivity(pantallaSiguiente)

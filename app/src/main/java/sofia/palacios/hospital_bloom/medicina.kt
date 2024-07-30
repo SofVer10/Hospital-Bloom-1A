@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -29,7 +30,10 @@ class medicina : AppCompatActivity() {
         val imvMedicina = findViewById<ImageView>(R.id.imvMedicina)
         val imvSuministro = findViewById<ImageView>(R.id.imvSuministro)
         val txtMedicamento = findViewById<EditText>(R.id.txtMedicamento)
-        val btnGuadarM = findViewById<Button>(R.id.btnGuardarM)
+        val txtMedicinaM = findViewById<TextView>(R.id.txtMedicinaM)
+        val txtPacientesM = findViewById<TextView>(R.id.txtPacientesM)
+        val txtSuministroM = findViewById<TextView>(R.id.txtSuministroM)
+        val btnGuadar = findViewById<Button>(R.id.btnGuardar)
 
 
 
@@ -37,7 +41,7 @@ class medicina : AppCompatActivity() {
         // programe el boton de guadar medicamentos
 
 
-        btnGuadarM.setOnClickListener{
+        btnGuadar.setOnClickListener{
 
           CoroutineScope(Dispatchers.IO).launch {
 
@@ -63,7 +67,23 @@ class medicina : AppCompatActivity() {
             finish()
         }
 
+        txtPacientesM.setOnClickListener {
+
+            val pantallaSiguiente = Intent(this@medicina, pacientes::class.java)
+            startActivity(pantallaSiguiente)
+
+            finish()
+        }
+
         imvMedicina.setOnClickListener {
+
+            val pantallaSiguiente = Intent(this@medicina, medicina::class.java)
+            startActivity(pantallaSiguiente)
+
+            finish()
+        }
+
+        txtMedicinaM.setOnClickListener {
 
             val pantallaSiguiente = Intent(this@medicina, medicina::class.java)
             startActivity(pantallaSiguiente)
@@ -74,6 +94,14 @@ class medicina : AppCompatActivity() {
         imvSuministro.setOnClickListener {
 
             val pantallaSiguiente = Intent(this@medicina, suministro1::class.java)
+            startActivity(pantallaSiguiente)
+
+            finish()
+        }
+
+        txtSuministroM.setOnClickListener {
+
+            val pantallaSiguiente = Intent(this@medicinagt, suministro1::class.java)
             startActivity(pantallaSiguiente)
 
             finish()

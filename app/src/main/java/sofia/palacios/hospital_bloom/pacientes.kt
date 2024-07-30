@@ -36,6 +36,9 @@ class pacientes : AppCompatActivity() {
         val txtApellido = findViewById<TextView>(R.id.txtApellido)
         val txtNumCama = findViewById<TextView>(R.id.txtNumCama)
         val txtNumHabitacion = findViewById<TextView>(R.id.txtNumHabitacion)
+        val txtMedicinaM = findViewById<TextView>(R.id.txtMedicinaM)
+        val txtPacientesM = findViewById<TextView>(R.id.txtPacientesM)
+        val txtSuministroM = findViewById<TextView>(R.id.txtSuministroM)
         val btnGuardar = findViewById<Button>(R.id.btnGuardar)
 
         btnGuardar.setOnClickListener {
@@ -71,6 +74,14 @@ class pacientes : AppCompatActivity() {
             finish()
         }
 
+        txtPacientesM.setOnClickListener {
+
+            val pantallaSiguiente = Intent(this@pacientes, pacientes::class.java)
+            startActivity(pantallaSiguiente)
+
+            finish()
+        }
+
         imvMedicina.setOnClickListener {
 
             val pantallaSiguiente = Intent(this@pacientes, medicina::class.java)
@@ -79,8 +90,23 @@ class pacientes : AppCompatActivity() {
             finish()
         }
 
+        txtMedicinaM.setOnClickListener {
+
+            val pantallaSiguiente = Intent(this@pacientes, medicina::class.java)
+            startActivity(pantallaSiguiente)
+
+            finish()
+        }
 
         imvsuministro.setOnClickListener {
+
+            val pantallaSiguiente = Intent(this@pacientes, suministro1::class.java)
+            startActivity(pantallaSiguiente)
+
+            finish()
+        }
+
+        txtSuministroM.setOnClickListener {
 
             val pantallaSiguiente = Intent(this@pacientes, suministro1::class.java)
             startActivity(pantallaSiguiente)
