@@ -64,21 +64,20 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.171"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rcvMedicamento"
-        app:layout_constraintVertical_bias="0.98" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="14dp"
         android:text="Medicina"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnGuardarM"
         app:layout_constraintVertical_bias="0.98" />
 
     <TextView
@@ -95,31 +94,34 @@
         app:layout_constraintVertical_bias="0.98" />
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/txtMedicamento"
         android:layout_width="324dp"
         android:layout_height="63dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="38dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginBottom="90dp"
         android:ems="10"
         android:hint="Medicamento"
         android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/rcvMedicamento"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.481"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.07" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcvMedicamento"
-        android:layout_width="0dp"
+    <Button
+        android:id="@+id/btnGuardarM"
+        android:layout_width="141dp"
         android:layout_height="0dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="155dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText" />
+        android:layout_marginStart="96dp"
+        android:layout_marginTop="153dp"
+        android:layout_marginEnd="96dp"
+        android:layout_marginBottom="498dp"
+        android:backgroundTint="#2196F3"
+        android:text="Guardar"
+        app:layout_constraintBottom_toTopOf="@+id/textView6"
+        app:layout_constraintEnd_toEndOf="@+id/bottomNavigationView"
+        app:layout_constraintStart_toStartOf="@+id/txtMedicamento"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

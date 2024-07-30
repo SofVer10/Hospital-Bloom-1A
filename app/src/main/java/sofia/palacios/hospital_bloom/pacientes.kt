@@ -24,6 +24,7 @@ class pacientes : AppCompatActivity() {
         val imvMedicina = findViewById<ImageView>(R.id.imvMedicina)
         val imvsuministro = findViewById<ImageView>(R.id.imvSuministro)
 
+
         imvPacientes.setOnClickListener {
 
             val pantallaSiguiente = Intent(this@pacientes, pacientes::class.java)
