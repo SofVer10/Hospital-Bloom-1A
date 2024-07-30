@@ -179,7 +179,7 @@
         app:layout_constraintVertical_bias="0.35" />
 
     <Button
-        android:id="@+id/Registrar"
+        android:id="@+id/btnGuardar"
         android:layout_width="233dp"
         android:layout_height="54dp"
         android:backgroundTint="#D19E03"
@@ -223,16 +223,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.468" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcvPaciente"
-        android:layout_width="409dp"
-        android:layout_height="229dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.82" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
