@@ -1,6 +1,8 @@
 package sofia.palacios.hospital_bloom
 
 import Modelos.Conexion
+import Modelos.tbPacientes
+import RicyclerViewHelpers.Adaptador
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -11,9 +13,12 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class pacientes : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,6 +45,43 @@ class pacientes : AppCompatActivity() {
         val txtPacientesM = findViewById<TextView>(R.id.txtPacientesM)
         val txtSuministroM = findViewById<TextView>(R.id.txtSuministroM)
         val btnGuardar = findViewById<Button>(R.id.btnGuardar)
+        val rcvPacientes = findViewById<RecyclerView>(R.id.rcvPacientes)
+
+        rcvPacientes.layoutManager = LinearLayoutManager(this)
+
+        ///////////// TODO: Mostrar Datos
+
+        fun obtenerPacientes(): List<tbPacientes> {
+            val objConexion = Conexion().cadenaConexion()
+            val statement = objConexion?.createStatement()
+            val resulSet = statement?.executeQuery("SELECT * FROM Pacientes")!!
+
+            val listaPacientes = mutableListOf<tbPacientes>()
+
+            while (resulSet.next()) {
+                val id_paciente = resulSet.getInt("id_paciente")
+                val nombres = resulSet.getString("nombres")
+                val apellidos = resulSet.getString("apellidos")
+                val enfermedad = resulSet.getString("enfermedad")
+                val numero_habitacion = resulSet.getString("numero_habitacion")
+                val numero_cama = resulSet.getString("numero_cama")
+                val fecha_nacimiento = resulSet.getInt("fecha_nacimiento")
+
+                val valoresJuntos = tbPacientes(id_paciente, nombres, apellidos, enfermedad, numero_habitacion, numero_cama, fecha_nacimiento)
+
+                listaPacientes.add(valoresJuntos)
+            }
+            return listaPacientes
+        }
+
+
+        CoroutineScope(Dispatchers.IO).launch {
+            val pacientesDB = obtenerPacientes()
+            withContext(Dispatchers.Main){
+                val adapter = Adaptador(pacientesDB)
+                rcvPacientes.adapter = adapter
+            }
+        }
 
         btnGuardar.setOnClickListener {
             CoroutineScope(Dispatchers.IO).launch {
