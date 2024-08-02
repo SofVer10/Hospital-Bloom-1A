@@ -2,6 +2,7 @@ package RicyclerViewHelpers
 
 import Modelos.Conexion
 import Modelos.tbPacientes
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.EditText
@@ -15,6 +16,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import sofia.palacios.hospital_bloom.R
+import sofia.palacios.hospital_bloom.detalle_paciente
 
 class Adaptador(var Datos:  List<tbPacientes>): RecyclerView.Adapter<ViewHolder>() {
 
@@ -150,6 +152,23 @@ class Adaptador(var Datos:  List<tbPacientes>): RecyclerView.Adapter<ViewHolder>
 
             val dialog = builder.create()
             dialog.show()
+        }
+
+        //Todo: Clic a la card completa
+
+        holder.itemView.setOnClickListener {
+            val context = holder.itemView.context
+
+            //Cambiar de pantalla a la pantalla de detalle
+            val pantallaDetalle = Intent(context, detalle_paciente::class.java)
+            //enviar a la otra pantalla todos mis valores
+            pantallaDetalle.putExtra("nombres", item.nombres)
+            pantallaDetalle.putExtra("apellidos", item.apellidos)
+            pantallaDetalle.putExtra("enfermedad", item.enfermedad)
+            pantallaDetalle.putExtra("numero_habitacion", item.numero_habitacion)
+            pantallaDetalle.putExtra("numero_cama", item.numero_cama)
+            pantallaDetalle.putExtra("fecha_nacimiento", item.fecha_nacimiento)
+            context.startActivity(pantallaDetalle)
         }
     }
 
