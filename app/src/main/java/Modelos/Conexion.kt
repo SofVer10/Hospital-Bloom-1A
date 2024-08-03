@@ -12,7 +12,7 @@ class Conexion {
             val usuario = "Ruth_Sofi"
             val contrasena = "ricaldone2024e"
 
-            val conexion = DriverManager.getConnection(ipSofi, usuario, contrasena)
+            val conexion = DriverManager.getConnection(ipRuth, usuario, contrasena)
             return conexion
         }catch (e: Exception){
             println("Este es el error: $e")
